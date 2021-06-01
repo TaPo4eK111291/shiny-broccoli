@@ -8,7 +8,9 @@
         </a>
       </div>
       <div class="hint">
-        {{ `Для корректного отображения рекомендуются матрицы от ${MIN_MATRIX_SIZE} до 63.` }}
+        {{
+          `Для корректного отображения рекомендуются матрицы от ${MIN_MATRIX_SIZE} до 63.`
+        }}
       </div>
 
       <div class="input-row row">
@@ -72,41 +74,41 @@ export default {
       let bottom = this.matrixSize - 1;
       let right = this.matrixSize - 1;
 
-      let direction = 'toRight';
+      let direction = "toRight";
 
       while (right >= left && top <= bottom) {
         switch (direction) {
-          case 'toRight':
+          case "toRight":
             for (let index = left; index <= right; index++) {
               this.printToMatrix(top, index, value);
             }
             top += 1;
             left += left === 0 ? 0 : 1; // used to first "near walls" rows with 0 spaces, after first cycle need to use additional space
-            direction = 'toBottom';
+            direction = "toBottom";
             break;
-          case 'toBottom':
+          case "toBottom":
             for (let index = top; index <= bottom; index++) {
               this.printToMatrix(index, right, value);
             }
             right -= 1;
             top += 1;
-            direction = 'toLeft';
+            direction = "toLeft";
             break;
-          case 'toLeft':
+          case "toLeft":
             for (let index = right; index >= left; index--) {
               this.printToMatrix(bottom, index, value);
             }
             bottom -= 1;
             right -= 1;
-            direction = 'toTop';
+            direction = "toTop";
             break;
-          case 'toTop':
+          case "toTop":
             for (let index = bottom; index >= top; index--) {
               this.printToMatrix(index, left, value);
             }
             left += 1;
             bottom -= 1;
-            direction = 'toRight';
+            direction = "toRight";
             break;
           default:
             break;
