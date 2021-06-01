@@ -1,6 +1,18 @@
 <template>
   <page-layout>
     <div slot="content" class="interpreter-content">
+      <div class="title">
+        Решение каты:
+        <a
+          href="https://www.codewars.com/kata/simpler-interactive-interpreter/javascript"
+        >
+          https://www.codewars.com/kata/simpler-interactive-interpreter/javascript
+        </a>
+      </div>
+      <div class="hint">
+        Для ввода доступны строки вида: variable = 2, test = 5, variable * test
+      </div>
+
       <div class="input-row">
         <el-input
           v-model="inputValue"
@@ -179,6 +191,16 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 20px;
+
+  .title {
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .hint {
+    font-size: 12px;
+    color: gray;
+  }
 
   .input-row {
     display: flex;
